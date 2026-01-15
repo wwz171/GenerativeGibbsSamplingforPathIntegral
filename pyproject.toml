@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ggpi"
+version = "0.1.0"
+description = "Generative Gibbs Sampling for Path Integral Molecular Dynamics"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Weizhou Wang"},
+    {name = "Xuanxi Zhang"}
+]
+keywords = [
+    "molecular dynamics",
+    "path integral",
+    "machine learning",
+    "generative models",
+    "flow matching",
+    "Gibbs sampling",
+    "quantum mechanics",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.21.0",
+    "torch>=2.0.0",
+    "torch-geometric>=2.3.0",
+    "torch-scatter",
+    "torch-sparse",
+    "tqdm>=4.60.0",
+    "numba>=0.56.0",
+    "matplotlib>=3.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+]
+analysis = [
+    "freud-analysis>=2.0.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+]
+all = [
+    "ggpi[dev,analysis,notebooks]",
+]
+
+[project.urls]
+Homepage = "https://github.com/wwz171/GenerativeGibbsforPathIntegral"
+Repository = "https://github.com/wwz171/GenerativeGibbsforPathIntegral"
+Documentation = "https://github.com/wwz171/GenerativeGibbsforPathIntegral#readme"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.package-data]
+"*" = ["*.pt", "*.pkl"]
+
+[tool.black]
+line-length = 88
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=ggpi --cov-report=term-missing"

@@ -1,0 +1,23 @@
+name: ggpi
+channels:
+  - pyg
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - matplotlib
+  - tqdm
+  - numba
+  - freud
+  - jupyter
+  - ipykernel
+  # PyTorch with CUDA 11.8
+  - pytorch
+  - pytorch-cuda=12.8
+
+  # PyG
+  - pyg
+  
