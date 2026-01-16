@@ -1,17 +1,12 @@
 # Core dependencies
+# NOTE: PyTorch and PyTorch Geometric must be installed separately!
+# See README.md for installation instructions.
 numpy>=1.21.0
-torch>=2.0.0
 tqdm>=4.60.0
 numba>=0.56.0
 matplotlib>=3.5.0
 
-# PyTorch Geometric (install after PyTorch)
-# See: https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
-torch-geometric>=2.3.0
-torch-scatter
-torch-sparse
-
-# Analysis tools
+# Analysis tools (install via: pip install freud-analysis)
 freud-analysis>=2.0.0
 
 # For running notebooks

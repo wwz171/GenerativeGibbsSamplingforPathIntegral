@@ -14,22 +14,52 @@ GG-PI accelerates path integral molecular dynamics (PIMD) simulations using gene
 
 ## Installation
 
-### Option 1: Using Conda (Recommended)
+### Step 1: Install PyTorch and PyTorch Geometric (Required)
 
+**You must install PyTorch and PyTorch Geometric manually** before installing this package. Choose the versions that match your CUDA setup.
+
+**Install PyTorch:**
 ```bash
-# Create conda environment with all dependencies
+# Example for CUDA 12.1 (adjust for your system)
+pip install torch --index-url https://download.pytorch.org/whl/cu121
+
+# Or for CPU only
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
+See [PyTorch Installation Guide](https://pytorch.org/get-started/locally/) for more options.
+
+**Install PyTorch Geometric:**
+```bash
+pip install torch-geometric torch-scatter torch-sparse torch-cluster
+```
+See [PyG Installation Guide](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html) for version-specific instructions.
+
+### Step 2: Install GGPI
+
+**Option A: Using pip (Recommended)**
+```bash
+# Install the package
+pip install -e .
+
+# Or pip install -r requirements.txt
+
+```
+
+**Option B: Using Conda environment**
+```bash
+# Create conda environment (core dependencies only)
 conda env create -f environment.yml
 conda activate ggpi
 
-# Install the ggpi package in editable mode
-pip install -e .
+# Then install PyTorch and PyG manually (see Step 1)
 ```
 
-### Option 2: Install dependencies only
 
+### Step 3: Install Analysis Tools (Optional)
+
+For RDF calculations in the example notebooks:
 ```bash
-# Install from requirements.txt
-pip install -r requirements.txt
+pip install freud-analysis
 ```
 
 ### Verify Installation
@@ -50,17 +80,22 @@ from ggpi.simulation import SilveraGoldmanPotential
 
 **Core Dependencies:**
 - Python >= 3.10
-- PyTorch >= 2.0.0 (with CUDA support recommended)
-- PyTorch Geometric >= 2.3.0
 - NumPy >= 1.21.0
 - Numba >= 0.56.0
 - tqdm >= 4.60.0
 - Matplotlib >= 3.5.0
 
-**For Analysis:**
-- freud-analysis >= 2.0.0 (for RDF calculations)
+**PyTorch Stack (install manually, see Installation):**
+- PyTorch >= 2.0.0 (with CUDA support recommended)
+- PyTorch Geometric >= 2.3.0
+- torch-scatter
+- torch-sparse
+- torch-cluster
 
-**For Notebooks:**
+**For Analysis (optional):**
+- freud-analysis >= 2.0.0 (install via `pip install freud-analysis`)
+
+**For Notebooks (optional):**
 - Jupyter
 - ipykernel
 

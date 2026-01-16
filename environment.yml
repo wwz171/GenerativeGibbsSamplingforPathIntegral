@@ -1,8 +1,5 @@
 name: ggpi
 channels:
-  - pyg
-  - pytorch
-  - nvidia
   - conda-forge
   - defaults
 dependencies:
@@ -11,13 +8,14 @@ dependencies:
   - matplotlib
   - tqdm
   - numba
-  - freud
+  - freud-analysis
   - jupyter
   - ipykernel
-  # PyTorch with CUDA 11.8
-  - pytorch
-  - pytorch-cuda=12.8
-
-  # PyG
-  - pyg
+  - pip
+  - pip:
+    - -e .
+# NOTE: PyTorch and PyTorch Geometric must be installed separately!
+# After activating this environment, run:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+#   pip install torch-geometric torch-scatter torch-sparse torch-cluster
   
