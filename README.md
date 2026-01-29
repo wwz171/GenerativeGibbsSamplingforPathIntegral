@@ -2,7 +2,7 @@
 
 This repository contains the official implementation of **GG-PI** from the paper:
 
-> **[Quantum Statistics from Classical Simulations via Generative Gibbs Sampling](<Add DOI or arXiv link>)**  
+> **[Quantum Statistics from Classical Simulations via Generative Gibbs Sampling](https://arxiv.org/pdf/2601.20228)**  
 > *Weizhou Wang* and *Xuanxi Zhang*
 
 GG-PI accelerates path integral molecular dynamics (PIMD) simulations using generative flow matching models with Gibbs sampling. This repository provides:
@@ -207,13 +207,12 @@ See [`examples/parah2_training.ipynb`](examples/parah2_training.ipynb) for a com
 If you find this code useful in your research, please consider citing:
 
 ```bibtex
-@article{wang2025ggpi,
-  title   = {<Add paper title>},
+@misc{wang_quantum_2026,
+  title   = {Quantum statistics from classical simulations via generative Gibbs sampling},
   author  = {Wang, Weizhou and Zhang, Xuanxi},
-  journal = {<Add venue>},
-  year    = {2025},
-  doi     = {<Add DOI>},
-  url     = {<Add URL or arXiv link>}
+  year    = {2026},
+  url = {http://arxiv.org/abs/2601.20228},
+  doi = {10.48550/arXiv.2601.20228},
 }
 ```
 
